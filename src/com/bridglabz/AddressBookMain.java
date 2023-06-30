@@ -4,5 +4,6 @@ public class AddressBookMain {
     public static void main(String[] args) {
         AddressBook AddressBook=new AddressBook();
         AddressBook.Add_Contact();
+        AddressBook.editContact();
     }
 }
