@@ -4,9 +4,6 @@ import java.util.Scanner;
 public class AddressBook {
     Scanner sc=new Scanner(System.in);
     ContactDetails contact;
-    public AddressBook(){
-        this.contact=contact;
-    }
     public void Add_Contact(){
         System.out.println("Enter the Contact Details");
         System.out.println("Enter the first name");
