@@ -5,5 +5,7 @@ public class AddressBookMain {
         AddressBook AddressBook=new AddressBook();
         AddressBook.Add_Contact();
         AddressBook.editContact();
+        AddressBook.delete_Contact();
+        AddressBook.addMultipleContact();
     }
 }

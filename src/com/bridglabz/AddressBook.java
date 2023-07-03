@@ -26,11 +26,11 @@ public class AddressBook {
 
 
     }
-        public void editContact(){
+        public void editContact() {
             System.out.print("Enter the contact first name to edit:");
             String editContactName = sc.next();
 
-            if(contact.getFirstName().equals(editContactName)){
+            if (contact.getFirstName().equals(editContactName)) {
                 System.out.println("contact found");
 
                 System.out.println("Before editing...");
@@ -61,10 +61,35 @@ public class AddressBook {
 
                 System.out.println("After editing...");
                 System.out.println(contact.toString());
-            }else{
+            } else {
                 System.out.println("contact not found");
             }
         }
+            public void delete_Contact(){
+                System.out.print("Enter the contact first name to delete:");
+                String deleteContactName = sc.next();
+
+                if(contact.getFirstName().equals(deleteContactName)) {
+                    System.out.println("contact found & deleted");
+                    contact = null;
+                }else{
+                    System.out.println("contact not found");
+                }
+
+                if(contact != null)
+                    System.out.println(contact.toString());
+            }
+    public void addMultipleContact() {
+        System.out.println("Enter Number of Contacts to Add into Contact Book");
+        int number = sc.nextInt();
+        for (int i = 0; i < number; i++) {
+            Add_Contact();
+            System.out.println(i + 1 + " Contact added Successfully.. ");
+
+        }
     }
+        }
+
+
 
 
