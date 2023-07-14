@@ -3,35 +3,51 @@ import java.util.*;
 
 public class AddressBook {
     Scanner sc = new Scanner(System.in);
-    ContactDetails contact;
-    List<ContactDetails> contactList = new ArrayList<>();
+    String addressBookName;
+    List<ContactDetails> contactList;
 
     public AddressBook(String addressBookName){
-        this.contact = contact;
+        this.addressBookName = addressBookName;
+        contactList = new ArrayList<>();
     }
 
-    public void addContact(){
+    public boolean isContactExists(String firstName){
+        boolean flag = false;
+        for (ContactDetails contact : contactList) {
+            if (firstName.equals(contact.getFirstName())) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+    public <ContacDetails> void addContact(){
         System.out.println("Enter the Contact Details:");
         System.out.print("Enter the First Name:");
         String firstName = sc.next();
-        System.out.print("Enter the Last Name:");
-        String lastName = sc.next();
-        System.out.print("Enter the Address:");
-        String address = sc.next();
-        System.out.print("Enter the City Name:");
-        String cityName = sc.next();
-        System.out.print("Enter the State Name:");
-        String stateName = sc.next();
-        System.out.print("Enter the Zip Code:");
-        int zipCode = sc.nextInt();
-        System.out.print("Enter the Phone Number:");
-        int phoneNo = Integer.parseInt(sc.next());
-        System.out.print("Enter the Email ID:");
-        String email = sc.next();
 
-        contact = new ContactDetails( firstName,lastName,address,cityName,stateName,zipCode,phoneNo,email);
+        if(!isContactExists(firstName)) {
+            System.out.print("Enter the Last Name:");
+            String lastName = sc.next();
+            System.out.print("Enter the Address:");
+            String address = sc.next();
+            System.out.print("Enter the City Name:");
+            String cityName = sc.next();
+            System.out.print("Enter the State Name:");
+            String stateName = sc.next();
+            System.out.print("Enter the Zip Code:");
+            int zipCode = sc.nextInt();
+            System.out.print("Enter the Phone Number:");
+              int phoneNo= Integer.parseInt(sc.next());
+            System.out.print("Enter the Email ID:");
+            String email = sc.next();
 
-        contactList.add(contact);
+            ContacDetails contact = (ContacDetails) new ContactDetails(firstName, lastName, address, cityName, stateName, zipCode, phoneNo, email);
+
+            contactList.add((ContactDetails) contact);
+       }else{
+            System.out.println(firstName + " Already exists in this address book");
+        }
     }
 
     public void editContact(){
@@ -74,8 +90,8 @@ public class AddressBook {
                             break;
                         case 6:
                             System.out.print("Edit Phone Number:");
-                            int phoneNoEditValue= Integer.parseInt(sc.next());
-                            contactList.get(i).setphoneNo(phoneNoEditValue);
+                            String phoneNoEditValue = sc.next();
+                            contactList.get(i).setphoneNo(Integer.parseInt(phoneNoEditValue));
                             break;
                         case 7:
                             System.out.print("Edit Email:");
