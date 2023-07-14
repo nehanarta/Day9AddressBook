@@ -6,11 +6,11 @@ public class ContactDetails {
     private String city;
     private String state;
     private long Zip;
-    private long phoneNo;
+    private int phoneNo;
     private String email;
 
     public ContactDetails(String firstName, String lastName, String address, String city,
-                          String state, long zip, long phoneNo, String email) {
+                          String state, long zip, int phoneNo, String email) {
         FirstName = firstName;
         LastName = lastName;
         this.address = address;
@@ -87,7 +87,7 @@ public class ContactDetails {
         return phoneNo;
     }
 
-    public void setPhoneNo(long phoneNo) {
+    public void setphoneNo(int phoneNo) {
         this.phoneNo = phoneNo;
     }
 
